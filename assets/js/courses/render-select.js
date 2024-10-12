@@ -1,19 +1,18 @@
 import { API_URL, showEror } from "../config.js";
 
-// Busca coordenadores
-async function fetchCoordinators() {
-    const response = await axios(`${API_URL}/coordinators`);
+// Busca cursos
+async function fetchCourses() {
+    const response = await axios(`${API_URL}/courses`);
     return await response.data;
 }
 
-
-// apresenta coordenadores no select
-async function renderCoordinators() {
+// apresenta cursos no select
+async function renderCourses() {
     try {
-        const list = document.querySelector("#coordinator_id");
-        const coordinators = await fetchCoordinators();
+        const list = document.querySelector("#course_id");
+        const courses = await fetchCourses();
 
-        coordinators.forEach((coordinator) => {
+        courses.forEach((coordinator) => {
             const option = document.createElement('option'); // Cria um novo elemento <option>
             option.value = coordinator.id; // Define o valor da opção como o ID do coordenador
             option.textContent = `${coordinator.name}`; // Define o texto da opção
@@ -26,4 +25,6 @@ async function renderCoordinators() {
     }
 }
 
-await renderCoordinators();
+
+
+await renderCourses();

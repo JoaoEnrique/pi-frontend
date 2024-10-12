@@ -6,9 +6,13 @@
     <title>Add Turma</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- axios -->
+    <script type="module" src="assets/js/teachers/render-select.js" defer></script> <!-- rendereiza professores no select -->
+    <script type="module" src="assets/js/courses/render-select.js" defer></script> <!-- rendereiza cursos no select -->
+    <script type="module" src="assets/js/classes/store.js" defer></script>
+    <script type="module" src="assets/js/load-message.js" defer></script>
 </head>
 <body>
-    
     <div class="menus">
         <header class="header">
             <div class="headernav">
@@ -30,30 +34,44 @@
                 <li><img src="assets/tasks-icon.png" alt="Tarefas"> Tarefas</li>
             </ul>
         </div>
-</div>
-<br>
+    </div>
+
+    <br>
+
     <div class="main-content">
         <h1>Adicionar Turma</h1>
         <div class="Form">
-            <div class="mb-3 text-start">
-                <label class="form-label">Código do professor:</label>
-                <input type="name" name="Coordenador" class="form-control" id="Coordenador" placeholder="Coordenador">
+
+            <form id="form">
+                <div class="mb-3 text-start">
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Professor:</label>
+                        <select class="form-control" name="teacher_id" id="teacher_id">
+                            <option selected disabled value="">Selecione Professor</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 text-start">
+                    <div class="mb-3 text-start">
+                        <label class="form-label">Curso:</label>
+                        <select class="form-control" name="course_id" id="course_id">
+                            <option selected disabled value="">Selecione Curso</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 text-start">
+                    <label class="form-label">Semestre:</label>
+                    <input type="name" name="semester" class="form-control" id="semester" placeholder="semester">
+                </div>
             </div>
 
-            <div class="mb-3 text-start">
-                <label class="form-label">Código do curso:</label>
-                <input type="name" name="Nome do curso" class="form-control" id="Nome do curso" placeholder="Nome do curso">
+            <div class="add-user">
+                <button>Adicionar Turma</button>
             </div>
-
-            <div class="mb-3 text-start">
-                <label class="form-label">Semestre:</label>
-                <input type="name" name="Periodo" class="form-control" id="Periodo" placeholder="Periodo">
-            </div>
-        </div>
-
-        <div class="add-user">
-            <a href="turma.html"><button>Adicionar Turma</button></a>
-        </div>
+            
+        </form>
     </div>
     
 </body>

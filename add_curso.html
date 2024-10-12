@@ -8,7 +8,8 @@
     <script src="script.js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- axios -->
     <script type="module" src="assets/js/coordinators/render-select.js" defer></script> <!-- rendereiza coordenadores no select -->
-    <script type="module" src="assets/js//courses/store.js" defer></script>
+    <script type="module" src="assets/js/courses/store.js" defer></script>
+    <script type="module" src="assets/js/load-message.js" defer></script>
 </head>
 <body>
     <div class="menus">
@@ -38,10 +39,6 @@
 
     <div class="main-content">
         <h1>Adicionar Curso</h1>
-
-        <div class="alert alert-danger alert-dismissible fade show d-none" role="alert">
-            <strong id="alert-title"></strong> <span id="alert-text"></span>
-        </div>
         
         <div class="Form">
             <form id="form">
@@ -50,7 +47,6 @@
                     <select class="form-control" name="coordinator_id" id="coordinator_id">
                         <option selected disabled value="">Selecione o Coordenador</option>
                     </select>
-                    <!-- <input type="name" name="Coordenador" class="form-control" id="Coordenador" placeholder="Coordenador"> -->
                 </div>
 
                 <div class="mb-3 text-start">
@@ -84,13 +80,12 @@
                     </label>
                     <br>
                 </div>
-            </div>
 
-            <div class="add-user">
-                <a href="curso.html"><button>Adicionar Curso</button></a>
-            </div>
-        </form>
+                <div class="add-user">
+                    <a href="curso.html"><button>Adicionar Curso</button></a>
+                </div>
+            </form>
+        </div>
     </div>
-    
 </body>
 </html>

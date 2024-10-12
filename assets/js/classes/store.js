@@ -5,16 +5,16 @@ async function store(e){
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.target).entries());
 
-        if(!data.coordinator_id || !data.name || !data.period || !data.is_annual || !data.type_work){
+        if(!data.teacher_id || !data.course_id || !data.semester){
             showEror('Erro:', 'Informe todos os campos');
             return;
         }    
 
         document.querySelector(".alert-danger").style.display = 'none';
 
-        const response = await axios.post(`${API_URL}/courses`, data);
+        const response = await axios.post(`${API_URL}/classes`, data);
 
-        handleSuccessSession(response.data.message, `edit_curso.html?id=${response.data.course.id}`);
+        handleSuccessSession(response.data.message, `edit_turma.html?id=${response.data.class.id}`);
 
     } catch (error) {
         showEror('Erro:', error?.response?.data?.error ?  error?.response?.data?.error : error.message );
