@@ -59,6 +59,10 @@ a {
     height: auto;
 }
 
+.text-capitalize{
+    text-transform: capitalize;
+}
+
 @media (max-width: 768px) {
     .header {
         height: 4rem; 
