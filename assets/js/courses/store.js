@@ -1,4 +1,4 @@
-import { API_URL, showEror } from "../config.js";
+import { API_URL, showEror, handleSuccessSession } from "../config.js";
 
 async function store(e){
     try {
@@ -12,8 +12,9 @@ async function store(e){
 
         document.querySelector(".alert-danger").style.display = 'none';
 
-        // Faz a requisição GET
-        await axios.post(`${API_URL}/courses`, data);
+        const response = await axios.post(`${API_URL}/courses`, data);
+
+        handleSuccessSession(response.data.message, `edit_curso.html?id=${response.data.course.id}`);
 
     } catch (error) {
         showEror('Erro:', error?.response?.data?.error ?  error?.response?.data?.error : error.message );
