@@ -28,9 +28,9 @@ function render(classes) {
 function filter(classes, searchTerm) {
     return classes.filter(theClass => {
         return (
-            theClass.name.toLowerCase().includes(searchTerm) || 
-            theClass.coordinator.name.toLowerCase().includes(searchTerm) ||
-            theClass.period.toLowerCase().includes(searchTerm)
+            theClass.course.name.toLowerCase().includes(searchTerm) || 
+            theClass.teacher.name.toLowerCase().includes(searchTerm) ||
+            theClass.semester.toString().includes(searchTerm)
         );
     });
 }
