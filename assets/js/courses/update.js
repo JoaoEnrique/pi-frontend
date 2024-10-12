@@ -1,4 +1,4 @@
-import { API_URL, showEror, handleErrorSession, handleSuccessSession } from "../config.js";
+import { API_URL, showEror, handleErrorSession, showSuccess } from "../config.js";
 
 // Função para fazer a requisição
 async function index() {
