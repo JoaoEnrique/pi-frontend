@@ -95,6 +95,7 @@ a {
 
 .action-buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 3rem;
     margin-bottom: 4rem;
@@ -131,38 +132,6 @@ a {
 .card p {
     font-size: 1.4rem; 
     color: #666;
-}
-
-
-
-@media (max-width: 768px) {
-    .action-buttons .card {
-        padding: 2rem; 
-        max-width: 20rem; 
-    }
-
-    .card h3 {
-        font-size: 2.5rem; 
-    }
-
-    .card p {
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .action-buttons .card {
-        padding: 1.5rem;
-        max-width: 15rem; 
-    }
-
-    .card h3 {
-        font-size: 2rem; 
-    }
-
-    .card p {
-        font-size: 1.4rem; 
-    }
 }
 
 .main-image {
@@ -285,13 +254,14 @@ footer {
     display: flex;
     align-self: center;
     flex-direction: column;
-    margin-top: 2,5rem;
+    margin-top: 2.5rem;
     margin: 2rem auto;
     padding: 2rem;
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
     align-content: center;
+    width: 70%;
 }
 
 .main-content h1 {
@@ -305,9 +275,9 @@ footer {
 }
 
 .search-bar {
-    width: 70%;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 2rem;
 }
 
@@ -322,7 +292,6 @@ footer {
 
 .search-bar button {
     width: 10%;
-
     padding: 1rem;
     background-color: #ccc;
     border: none;
@@ -337,7 +306,7 @@ footer {
     background: #fff;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-    width: 70%;
+    width: 100%;
     cursor: pointer;
 }
 
@@ -435,9 +404,9 @@ footer {
 
 
 #drop_zone{
-    width: 70%;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #fff;
     margin-bottom: 2rem;
     border: #333 0.2rem dashed ;
@@ -445,7 +414,7 @@ footer {
 }
 
 .drop_zone-input {
-    width: 90%;
+    /* minwidth: 80%; */
     padding: 1rem;
     border: none;
     border-radius: 5px 0 0 5px;
@@ -454,7 +423,7 @@ footer {
 }
 
  #drop_zone label{
-    width: 10%;
+    /* width: 10%; */
     padding: 1rem;
     background-color: #ccc;
     border: none;
@@ -470,7 +439,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 70%;
+    width: 100%;
     background-color: #fff;
     border-radius: 1rem;    
     padding: 2rem;
@@ -529,7 +498,7 @@ form {
 
 .alert{
     font-size: 2rem;
-    width: 70%;
+    width: 100%;
     position: relative;
     padding: .75rem 1.25rem;
     margin-bottom: 1rem;
@@ -565,4 +534,86 @@ form {
 
 input:checked + .radio-btn::after {
     opacity: 1;
+}
+
+
+
+@media (max-width: 768px) {
+    .action-buttons .card {
+        padding: 2rem; 
+        max-width: 20rem; 
+    }
+
+    .card h3 {
+        font-size: 2.5rem; 
+    }
+
+    .card p {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 743px) {
+    .main-content{
+        width: 90%;
+        margin-left: 7rem;
+    }
+
+    .search-bar button {
+        width: 15%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main-content{
+        width: 90%;
+        margin-left: 5rem;
+        padding: 1rem;
+    }
+
+    .search-bar button {
+        width: 15%;
+    }
+
+    .action-buttons .card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .main-image img{
+        width: 100%;
+    }
+
+    .main-content h1{
+        font-size: 3rem;
+    }
+
+    .container h1{
+        font-size: 4rem;
+    }
+
+    html {
+        font-size: 55.5%;
+    }
+
+    .main-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .add-user button, .search-bar input {
+        font-size: 1.8rem;
+    }
+
+
+}
+
+
+@media (max-width: 480px) {
+    .card h3 {
+        font-size: 2rem; 
+    }
+
+    .card p {
+        font-size: 1.4rem; 
+    }
 }
