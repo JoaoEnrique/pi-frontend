@@ -3,16 +3,22 @@ import { API_URL, showEror, handleSuccessSession } from "../config.js";
 async function storeByFile(e){
     try {
         e.preventDefault();
-        const data = Object.fromEntries(new FormData(e.target).entries());
+        const formData = new FormData(e.target);
 
-        console.log(data); 
+        if(!formData.get('file').size) {
+            showEror('Erro:', 'Insira o arquivo');
+            return;
+        }
         
-
         document.querySelector(".alert-danger").style.display = 'none';
 
-        const response = await axios.post(`${API_URL}/students`, data);
+        const response = await axios.post(`${API_URL}/students/store-by-file`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
 
-        handleSuccessSession(response.data.message, `edit_aluno.html?id=${response.data.student.id}`);
+        handleSuccessSession(response.data.message + " As senhas foram enviadas por email!", `alunos.html`);
 
     } catch (error) {
         showEror('Erro:', error?.response?.data?.error ?  error?.response?.data?.error : error.message );

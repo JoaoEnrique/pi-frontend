@@ -377,7 +377,7 @@ footer {
 
 .add-user, .remove-user {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     margin: 20px 0;
 }
 
