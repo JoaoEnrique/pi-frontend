@@ -29,7 +29,7 @@ async function render() {
         document.querySelector("#id").value = student.id;
         document.querySelector("#name").value = student.name;
         document.querySelector("#email").value = student.email;
-        document.querySelector("#class_id").value = student.class_id;
+        // document.querySelector("#class_id").value = student.class_id;
         document.querySelector("#code").value = student.code;
 
     } catch (error) {
@@ -44,7 +44,7 @@ async function update(e){
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.target).entries());
 
-        if(!data.name || !data.email || !data.class_id || !data.code){
+        if(!data.name || !data.email || !data.code){
             showEror('Erro:', 'Informe todos os campos');
             return;
         }    

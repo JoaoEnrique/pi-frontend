@@ -5,7 +5,7 @@ async function store(e){
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.target).entries());
 
-        if(!data.name || !data.email || !data.class_id || !data.code){
+        if(!data.name || !data.email || !data.code){
             showEror('Erro:', 'Informe todos os campos');
             return;
         }    
