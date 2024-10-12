@@ -57,7 +57,7 @@ async function update(e){
 
         const response = await axios.put(`${API_URL}/courses/${data.id}`, data);
 
-        handleSuccessSession(response.data.message, `edit_curso.html?id=${response.data.course.id}`);
+        showSuccess(response.data.message);
 
     } catch (error) {
         showEror('Erro:', error?.response?.data?.error ?  error?.response?.data?.error : error.message );
