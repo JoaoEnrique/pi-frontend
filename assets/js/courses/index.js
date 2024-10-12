@@ -36,7 +36,7 @@ async function show(){
                         <p>Coord:  ${e.coordinator.name}</p>
                     </div>
                     <div class="text-capitalize user-ra">
-                        ${e.name}
+                        ${e.period}
                     </div>
                 </div>
             `;
