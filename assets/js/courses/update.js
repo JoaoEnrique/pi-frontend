@@ -1,51 +1,38 @@
-import { API_URL } from "../config.js";
+import { API_URL, showEror, handleErrorSession } from "../config.js";
 
 // Função para fazer a requisição
 async function index() {
-    try {
-        const currentUrl = window.location.href;
-        const url = new URL(currentUrl);// Cria um objeto URL a partir da URL atual
-        const params = new URLSearchParams(url.search); // Usa URLSearchParams para obter os parâmetros da query string
+    const currentUrl = window.location.href;
+    const url = new URL(currentUrl);// Cria um objeto URL a partir da URL atual
+    const params = new URLSearchParams(url.search); // Usa URLSearchParams para obter os parâmetros da query string
+    
+    const response = await axios(`${API_URL}/courses/${params.get("id")}`);
 
-        // Faz a requisição GET
-        const response = await fetch(`${API_URL}/courses/${params.get("id")}`);
-
-        // Verifica se a resposta foi bem-sucedida
-        if (!response.ok) {
-            throw new Error(`Erro: ${response.status} - ${response.statusText}`);
-        }
-
-        // Converte a resposta para JSON
-        return await response.json();
-        
-
-    } catch (error) {
-        // Lida com erros
-        console.error('Ocorreu um erro:', error.message);
-    }
+    return await response.data;
 }
 
 // apresenta conteudo na tela
-function render() {
-    const list = document.querySelector(".users-list");
-    const course = index();
-    console.log(course);
-    
-
-    // list.innerHTML = ''; // Limpa a lista antes de renderizar
-    //     list.innerHTML += `
-    //         <div class="user">
-    //             <div class="user-info">
-    //                 <h3>${e.name}</h3>
-    //                 <p>Coord: ${e.coordinator.name}</p>
-    //             </div>
-    //             <div class="text-capitalize user-ra">
-    //                 ${e.period}
-    //             </div>
-    //         </div>
-    //     `;
+async function render() {
+    try {
+        const course = await index();
+        if(!course){
+            handleErrorSession('Erro ao buscar curso:', "Esse curso não foi encontrado", 'curso.html');
+            return
+        }
+        
+        document.querySelector("#id").value = course.id;
+        document.querySelector("#coordinator_id").value = course.coordinator_id;
+        document.querySelector("#name").value = course.name;
+        document.querySelector("#period").value = course.period;
+        document.querySelector("#type_work").value = course.type_work;
+        
+        document.querySelector("#annual").checked = course.is_annual
+        document.querySelector("#bimonthly").checked = !course.is_annual
+        
+    } catch (error) {
+        showEror('Erro ao buscar curso:', error?.response?.data?.error ?  error?.response?.data?.error : error.message );
+        console.error('Ocorreu um erro:', error);
+    }
 }
 
-
-// Chame a função show() para carregar os cursos quando o script for carregado
-render(); 
+render(); //renderiza informações do curso

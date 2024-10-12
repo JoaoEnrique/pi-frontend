@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <script type="module" src="assets/js/courses/index.js" defer></script>
+    <script type="module" src="assets/js/load-message.js" defer></script>
 </head>
 <body>
     
@@ -36,6 +37,16 @@
 
     <div class="main-content">
         <h1>Cursos</h1>
+
+        <!-- error -->
+        <div class="alert alert-danger alert-dismissible fade show d-none" role="alert">
+            <strong id="alert-title"></strong> <span id="alert-text"></span>
+        </div>
+
+        <!-- success -->
+        <div class="alert alert-success alert-dismissible fade show d-none" role="alert">
+            <strong id="alert-title"></strong> <span id="alert-text"></span>
+        </div>
 
         <div class="search-bar">
             <input type="text" placeholder="buscar">

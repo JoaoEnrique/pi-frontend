@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="module" src="assets/js//courses/store.js" defer></script>
+    <script type="module" src="assets/js/coordinators/render-select.js" defer></script>
+    <script type="module" src="assets/js/courses/update.js" defer></script>
+    <script type="module" src="assets/js/courses/delete.js" defer></script>
 </head>
 <body>
     <div class="menus">
@@ -36,7 +38,7 @@
     <br>
 
     <div class="main-content">
-        <h1>Adicionar Curso</h1>
+        <h1>Atualizar Curso</h1>
 
         <div class="alert alert-danger alert-dismissible fade show d-none" role="alert">
             <strong id="alert-title"></strong> <span id="alert-text"></span>
@@ -49,8 +51,10 @@
                     <select class="form-control" name="coordinator_id" id="coordinator_id">
                         <option selected disabled value="">Selecione o Coordenador</option>
                     </select>
-                    <!-- <input type="name" name="Coordenador" class="form-control" id="Coordenador" placeholder="Coordenador"> -->
                 </div>
+
+                
+                <input type="hidden" name="id" id="id"> <!-- id do curso -->
 
                 <div class="mb-3 text-start">
                     <label class="form-label">Nome do curso:</label>
@@ -71,13 +75,13 @@
                     
                 <div>
                     <label class="custom-radio">
-                        <input type="radio" name="is_annual" value="1">
+                        <input type="radio" id="bimonthly" name="is_annual" value="1">
                         <span class="radio-btn"></span>
                         Bimestral
                     </label>
                     <br>
                     <label class="custom-radio">
-                        <input type="radio" name="is_annual" value="2">
+                        <input type="radio" id="annual" name="is_annual" value="2">
                         <span class="radio-btn"></span>
                         Anual
                     </label>
@@ -85,8 +89,14 @@
                 </div>
             </div>
 
-            <div class="add-user">
-                <a href="curso.html"><button>Adicionar Curso</button></a>
+            <div class="d-flex">
+                <div class="add-user">
+                    <a href="curso.html"><button>Atualizar Curso</button></a>
+                </div>
+            
+                <div class="remove-user">
+                    <button id="btn-delete" type="button">Apagar Curso</button>
+                </div>
             </div>
         </form>
     </div>

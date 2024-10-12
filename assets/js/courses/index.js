@@ -27,7 +27,7 @@ function render(courses) {
     list.innerHTML = ''; // Limpa a lista antes de renderizar
     courses.forEach((e) => {
         list.innerHTML += `
-            <div class="user">
+            <div class="user" onclick="window.location.href = 'edit_curso.html?id=${e.id}'">
                 <div class="user-info">
                     <h3>${e.name}</h3>
                     <p>Coord: ${e.coordinator.name}</p>
