@@ -6,6 +6,9 @@
     <title>Alunos</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- axios -->
+    <script type="module" src="assets/js/load-message.js" defer></script>
+    <script type="module" src="assets/js/students/index.js" defer></script>
 </head>
 <body>
     
@@ -39,48 +42,9 @@
             <input type="text" placeholder="buscar">
             <button><img src="assets/search.png" alt="Buscar"></button>
         </div>
-        <div class="users-list">
-            <div class="user">
-                <div class="user-info">
-                    <h3>Fernanda Campos</h3>
-                    <p>Fernanda.campos@fatec.sp.gov.br</p>
-                </div>
-                <div class="user-ra">
-                    RA: 11109546
-                    <img src="assets/alt_user.png" alt="Perfil">
-                </div>
-            </div>
-            <div class="user">
-                <div class="user-info">
-                    <h3>Rita Pereira</h3>
-                    <p>Rita.Pereira@fatec.sp.gov.br</p>
-                </div>
-                <div class="user-ra">
-                    RA: 11109578
-                    <img src="assets/alt_user.png" alt="Perfil">
-                </div>
-            </div>
-            <div class="user">
-                <div class="user-info">
-                    <h3>José da Silva</h3>
-                    <p>Jose.Silva@fatec.sp.gov.br</p>
-                </div>
-                <div class="user-ra">
-                    RA: 11109345
-                    <img src="assets/alt_user.png" alt="Perfil">
-                </div>
-            </div>
-            <div class="user">
-                <div class="user-info">
-                    <h3>Ema Batista</h3>
-                    <p>Ema.Batista@fatec.sp.gov.br</p>
-                </div>
-                <div class="user-ra">
-                    RA: 11103458
-                    <img src="assets/alt_user.png" alt="Perfil">
-                </div>
-            </div>
-        </div>
+        
+        <div class="users-list"></div>
+
         <div class="add-user">
             <a href="add_aluno.html"><button>Adicionar Aluno</button></a>
         </div>
