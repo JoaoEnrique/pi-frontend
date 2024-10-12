@@ -1,4 +1,4 @@
-import { API_URL, showEror, handleErrorSession, handleSuccessSession } from "../config.js";
+import { API_URL, showEror, handleErrorSession, showSuccess } from "../config.js";
 
 // Função para fazer a requisição
 async function index() {
@@ -7,11 +7,11 @@ async function index() {
     const params = new URLSearchParams(url.search); // Usa URLSearchParams para obter os parâmetros da query string
 
     if(!params.get("id")){
-        handleErrorSession('Erro ao buscar curso:', "Esse curso não foi encontrado", 'curso.html');
+        handleErrorSession('Erro ao buscar aluno:', "Esse aluno não foi encontrado", 'alunos.html');
         return
     }
     
-    const response = await axios(`${API_URL}/courses/${params.get("id")}`);
+    const response = await axios(`${API_URL}/students/${params.get("id")}`);
 
     return await response.data;
 }
@@ -19,22 +19,18 @@ async function index() {
 // apresenta conteudo na tela
 async function render() {
     try {
-        const course = await index();
+        const student = await index();
         
-        if(!course){
-            handleErrorSession('Erro ao buscar curso:', "Esse curso não foi encontrado", 'curso.html');
+        if(!student){
+            handleErrorSession('Erro ao buscar aluno:', "Esse aluno não foi encontrado", 'alunos.html');
             return
         }
-        
-        document.querySelector("#id").value = course.id;
-        document.querySelector("#coordinator_id").value = course.coordinator_id;
-        document.querySelector("#name").value = course.name;
-        document.querySelector("#period").value = course.period;
-        document.querySelector("#type_work").value = course.type_work;
-        
-        // anual ou bimestral
-        document.querySelector("#bimonthly").checked = !course.is_annual;
-        document.querySelector("#annual").checked = course.is_annual;
+
+        document.querySelector("#id").value = student.id;
+        document.querySelector("#name").value = student.name;
+        document.querySelector("#email").value = student.email;
+        document.querySelector("#class_id").value = student.class_id;
+        document.querySelector("#code").value = student.code;
 
     } catch (error) {
         showEror('Erro ao buscar curso:', error?.response?.data?.error ?  error?.response?.data?.error : error.message );
@@ -48,14 +44,14 @@ async function update(e){
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.target).entries());
 
-        if(!data.id || !data.coordinator_id || !data.name || !data.period || !data.is_annual || !data.type_work){
+        if(!data.name || !data.email || !data.class_id || !data.code){
             showEror('Erro:', 'Informe todos os campos');
             return;
         }    
 
         document.querySelector(".alert-danger").style.display = 'none';
 
-        const response = await axios.put(`${API_URL}/courses/${data.id}`, data);
+        const response = await axios.put(`${API_URL}/students/${data.id}`, data);
 
         showSuccess(response.data.message);
 

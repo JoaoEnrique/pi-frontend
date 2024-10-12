@@ -8,7 +8,8 @@
     <script src="script.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- axios -->
     <script type="module" src="assets/js/classes/render-select.js" defer></script> <!-- rendereiza cursos no select -->
-    <script type="module" src="assets/js/students/store.js" defer></script>
+    <script type="module" src="assets/js/students/update.js" defer></script>
+    <script type="module" src="assets/js/students/delete.js" defer></script>
     <script type="module" src="assets/js/load-message.js" defer></script>
 </head>
 <body>
@@ -37,13 +38,16 @@
 </div>
 <br>
     <div class="main-content">
-        <h1>Adicionar Aluno</h1>
+        <h1>Atualizar Aluno</h1>
         <div class="Form">
             <form id="form">
                 <div class="mb-3 text-start">
                     <label class="form-label">Nome:</label>
                     <input type="name" name="name" class="form-control" id="name" placeholder="Nome">
                 </div>
+
+                
+                <input type="hidden" name="id" id="id"> <!-- id do aluno -->
 
                 <div class="mb-3 text-start">
                     <label class="form-label">Email:</label>
@@ -52,9 +56,9 @@
 
                 <div class="mb-3 text-start">
                     <div class="mb-3 text-start">
-                        <label class="form-label">Curso:</label>
+                        <label class="form-label">Turma:</label>
                         <select class="form-control" name="class_id" id="class_id">
-                            <option selected disabled value="">Selecione Curso</option>
+                            <option selected disabled value="">Selecione a Turma</option>
                         </select>
                     </div>
                 </div>
@@ -65,8 +69,14 @@
                 </div>
             </div>
 
-            <div class="add-user">
-                <button>Adicionar Aluno</button>
+            <div class="d-flex">
+                <div class="add-user">
+                    <button>Atualizar Aluno</button>
+                </div>
+    
+                <div class="remove-user">
+                    <button id="btn-delete" type="button">Apagar Aluno</button>
+                </div>
             </div>
         </form>
     </div>
