@@ -22,6 +22,18 @@ a {
     color: inherit; 
 }
 
+.w-100{
+    width: 100%;
+}
+
+.label-file{
+    margin-bottom: -20px;
+}
+
+label{
+    cursor: pointer;
+}
+
 .header {
     position: fixed; 
     top: 0;
@@ -414,12 +426,12 @@ footer {
 }
 
 .drop_zone-input {
-    /* minwidth: 80%; */
     padding: 1rem;
     border: none;
     border-radius: 5px 0 0 5px;
     outline: none;
     font-size: 2rem;
+    overflow: auto;
 }
 
  #drop_zone label{
@@ -463,8 +475,16 @@ footer {
     margin-bottom: 2rem;
 }
 
-form {
+#form {
     margin: 20px;
+}
+
+.overflow{
+    overflow: auto;
+}
+
+#store-by-file{
+    width: 100%;
 }
 
 .custom-radio {
@@ -600,11 +620,22 @@ input:checked + .radio-btn::after {
         font-size: 2.5rem;
     }
 
-    .add-user button, .search-bar input {
+    .add-user button, .remove-user button, .search-bar input {
         font-size: 1.8rem;
     }
 
+    form {
+        margin: 5px;
+    }
 
+    #drop_zone{
+        flex-wrap: wrap;
+    }
+
+    #drop_zone label{
+        margin-top: 5px;
+        width: 100%;
+    }
 }
 
 

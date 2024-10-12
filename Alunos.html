@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alunos</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- axios -->
     <script type="module" src="assets/js/load-message.js" defer></script>
     <script type="module" src="assets/js/students/index.js" defer></script>
+    <script type="module" src="assets/js/students/store-by-file.js" defer></script>
 </head>
 <body>
     
@@ -53,16 +54,22 @@
 
         <h2>Adicionar Aluno usando arquivo</h2>
 
-        <!-- <label class="w-100" for="actual-btn"> -->
-            <div id="drop_zone">
-                <div class="drop_zone-input" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
-                    <p>Arraste o arquivo para esta <i>zona</i>.</p>
+        <form id="store-by-file">
+            <label class="w-100 label-file" for="file">
+                <div id="drop_zone">
+                    <div class="drop_zone-input" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+                        <p>Arraste o arquivo para esta <i>zona</i>.</p>
+                    </div>
+                    <label for="file">Escolher Arquivo</label>
                 </div>
-                <label for="actual-btn">Escolher Arquivo</label>
-            </div>
-        <!-- </label> -->
+            </label>
 
-      <input type="file" id="actual-btn" hidden/>
+            <input type="file" id="file" name="file" accept=".xlsx,.xls" hidden/>
+        </form>
+
+        <div class="add-user">
+            <button>Salvar Alunos</button>
+        </div>
     </div>
 </body>
 </html>

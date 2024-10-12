@@ -11,12 +11,18 @@ function dropHandler(ev) {
         if (item.kind === "file") {
           const file = item.getAsFile();
           console.log(`… file[${i}].name = ${file.name}`);
+          document.querySelector(".drop_zone-input").innerHTML = `
+          <p> ${file.name}</p>
+        `
         }
       });
     } else {
       // Use DataTransfer interface to access the file(s)
       [...ev.dataTransfer.files].forEach((file, i) => {
         console.log(`… file[${i}].name = ${file.name}`);
+        document.querySelector(".drop_zone-input").innerHTML = `
+          <p> ${file.name}</p>
+        `
       });
     }
   }
@@ -29,12 +35,14 @@ function dropHandler(ev) {
   }
   
   const actualBtn = document.getElementById('actual-btn');
-
-  const fileChosen = document.getElementById('file-chosen');
+  const fileChosen = document.getElementById('file');
   
-  if(actualBtn){
-    actualBtn.addEventListener('change', function(){
+  if(fileChosen){
+    fileChosen.addEventListener('change', function(){
       fileChosen.textContent = this.files[0].name
+      document.querySelector(".drop_zone-input").innerHTML = `
+          <p> ${this.files[0].name}</p>
+        `
     })
   }
   
