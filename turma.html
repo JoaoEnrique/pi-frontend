@@ -6,6 +6,9 @@
     <title>Turma</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- axios -->
+    <script type="module" src="assets/js/load-message.js" defer></script>
+    <script type="module" src="assets/js/classes/index.js" defer></script>
 </head>
 <body>
     
@@ -39,44 +42,9 @@
             <input type="text" placeholder="buscar">
             <button><img src="assets/search.png" alt="Buscar"></button>
         </div>
-        <div class="users-list">
-            <div class="user">
-                <div class="user-info">
-                    <h3>Analise e desenvolvimento de sistema</h3>
-                    <p>Ronaldo Orfão</p>
-                </div>
-                <div class="user-ra">
-                    Semestre: 1
-                </div>
-            </div>
-            <div class="user">
-                <div class="user-info">
-                    <h3>Administração</h3>
-                    <p>João Silva</p>
-                </div>
-                <div class="user-ra">
-                    Semestre: 5
-                </div>
-            </div>
-            <div class="user">
-                <div class="user-info">
-                    <h3>Comercio Exterior</h3>
-                    <p>Maria Marques</p>
-                </div>
-                <div class="user-ra">
-                    Semestre: 1
-                </div>
-            </div>
-            <div class="user">
-                <div class="user-info">
-                    <h3>Polimeros</h3>
-                    <p>Drumond de Andrade</p>
-                </div>
-                <div class="user-ra">
-                    Semestre: 2
-                </div>
-            </div>
-        </div>
+        
+        <div class="users-list"> </div>
+
         <div class="add-user">
             <a href="add_turma.html"><button>Adicionar Turma</button></a>
         </div>
