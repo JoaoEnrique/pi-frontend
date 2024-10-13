@@ -9,6 +9,13 @@ async function storeByFile(e){
             showEror('Erro:', 'Insira o arquivo');
             return;
         }
+
+        // Verifica se o arquivo é um Excel
+        const allowedTypes = ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'];
+        if (!allowedTypes.includes(formData.get('file').type)) {
+            showEror('Erro:', 'O arquivo deve ser um arquivo Excel (.xlsx ou .xls)');
+            return;
+        }
         
         document.querySelector(".alert-danger").style.display = 'none';
 
