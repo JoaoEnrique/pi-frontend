@@ -1,5 +1,5 @@
 //  se for https, a api está hospedada
-const API_URL = location.protocol  === 'https:' ? 'http://localhost:3000/api' : 'https://pi-backend-jqsj.onrender.com/api';
+const API_URL = location.protocol === 'http:' ? 'http://localhost:3000/api' : 'https://pi-backend-jqsj.onrender.com/api';
 
 const showEror = (title, text) => {
     if(document.querySelector(".alert-success")) document.querySelector(".alert-success").style.display = 'none';
