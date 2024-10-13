@@ -77,11 +77,11 @@ label{
 
 @media (max-width: 768px) {
     .header {
-        height: 4rem; 
+        height: 5rem; 
     }
     
     .header img, .header-icons img {
-        width: 2.5rem; 
+        width: 3rem; 
     }
 }
 
@@ -587,6 +587,7 @@ input:checked + .radio-btn::after {
 @media screen and (max-width: 500px) {
     .main-content{
         width: 90%;
+        margin-top: 3rem;
         margin-left: 5rem;
         padding: 1rem;
     }
@@ -624,8 +625,8 @@ input:checked + .radio-btn::after {
         font-size: 1.8rem;
     }
 
-    form {
-        margin: 5px;
+    #form {
+        margin: 0px;
     }
 
     #drop_zone{
