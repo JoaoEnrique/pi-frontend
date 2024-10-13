@@ -1,24 +1,9 @@
-import { API_URL } from "../config.js";
+import { API_URL, showEror } from "../config.js";
 
 // Função para fazer a requisição
 async function index() {
-    try {
-        // Faz a requisição GET
-        const response = await fetch(`${API_URL}/courses`);
-
-        // Verifica se a resposta foi bem-sucedida
-        if (!response.ok) {
-            throw new Error(`Erro: ${response.status} - ${response.statusText}`);
-        }
-
-        // Converte a resposta para JSON
-        return await response.json();
-        
-
-    } catch (error) {
-        // Lida com erros
-        console.error('Ocorreu um erro:', error.message);
-    }
+    const response = await axios(`${API_URL}/courses`);
+    return response.data;
 }
 
 // apresenta conteudo na tela
@@ -60,9 +45,14 @@ function setupSearch(courses) {
 }
 
 async function show() {
-    const allCourses = await index(); // Busca todos os cursos
-    render(allCourses); // Renderiza todos os cursos
-    setupSearch(allCourses); // Configura o evento de busca
+    try {
+        const allCourses = await index(); // Busca todos os cursos
+        render(allCourses); // Renderiza todos os cursos
+        setupSearch(allCourses); // Configura o evento de busca
+    } catch (error) {
+        showEror('Erro:', error?.response?.data?.error ?  error?.response?.data?.error : error.message );
+        console.error('Ocorreu um erro:', error);
+    }
 }
 
 // Chame a função show() para carregar os cursos quando o script for carregado

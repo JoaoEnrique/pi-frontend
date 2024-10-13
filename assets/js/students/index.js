@@ -1,4 +1,4 @@
-import { API_URL } from "../config.js";
+import { API_URL, showEror } from "../config.js";
 
 // Função para fazer a requisição
 async function index() {
@@ -46,9 +46,14 @@ function setupSearch(students) {
 }
 
 async function show() {
-    const allStudents = await index(); // Busca todos os cursos
-    render(allStudents); // Renderiza todos os cursos
-    setupSearch(allStudents); // Configura o evento de busca
+    try {
+        const allStudents = await index(); // Busca todos os cursos
+        render(allStudents); // Renderiza todos os cursos
+        setupSearch(allStudents); // Configura o evento de busca
+    } catch (error) {
+        showEror('Erro:', error?.response?.data?.error ?  error?.response?.data?.error : error.message );
+        console.error('Ocorreu um erro:', error);
+    }
 }
 
 // Chame a função show() para carregar os cursos quando o script for carregado
