@@ -12,7 +12,7 @@ function render(students) {
     list.innerHTML = ''; // Limpa a lista antes de renderizar
     students.forEach((e) => {
         list.innerHTML += `
-            <div class="user" onclick="window.location.href = 'edit_aluno.html?id=${e.id}'">
+            <div class="user" onclick="window.location.href = 'edit_professor.html?id=${e.id}'">
                 <div class="user-info">
                     <h3>${e.name}</h3>
                     <p>${e.email}</p>

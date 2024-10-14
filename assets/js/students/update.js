@@ -29,7 +29,6 @@ async function render() {
         document.querySelector("#id").value = student.id;
         document.querySelector("#name").value = student.name;
         document.querySelector("#email").value = student.email;
-        // document.querySelector("#class_id").value = student.class_id;
         document.querySelector("#code").value = student.code;
 
     } catch (error) {
@@ -63,4 +62,4 @@ async function update(e){
 
 document.querySelector("#form").addEventListener('submit', (e) => update(e))
 
-render(); //renderiza informações do curso
+render(); //renderiza informações no formulario

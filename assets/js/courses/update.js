@@ -67,4 +67,4 @@ async function update(e){
 
 document.querySelector("#form").addEventListener('submit', (e) => update(e))
 
-render(); //renderiza informações do curso
+render(); //renderiza informações no formulario

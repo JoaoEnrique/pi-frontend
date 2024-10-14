@@ -2,7 +2,7 @@ import { API_URL, showEror } from "../config.js";
 
 // Função para fazer a requisição
 async function index() {
-    const response = await axios(`${API_URL}/teachers`);
+    const response = await axios(`${API_URL}/students`);
     return response.data;
 }
 

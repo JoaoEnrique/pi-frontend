@@ -22,7 +22,7 @@ async function render() {
         const student = await index();
         
         if(!student){
-            handleErrorSession('Erro ao buscar professor:', "Esse professor não foi encontrado", 'professors.html');
+            handleErrorSession('Erro ao buscar professor:', "Esse professor não foi encontrado", 'professores.html');
             return
         }
 
