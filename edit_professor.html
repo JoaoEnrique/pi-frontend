@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Professor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- axios -->
+    <!-- <script type="module" src="assets/js/classes/render-select.js" defer></script> rendereiza cursos no select -->
+    <script type="module" src="assets/js/students/update.js" defer></script>
+    <script type="module" src="assets/js/students/delete.js" defer></script>
+    <script type="module" src="assets/js/load-message.js" defer></script>
+</head>
+<body>
+    
+    <div class="menus">
+        <header class="header">
+            <div class="headernav">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Logo">
+                </a>
+                <div class="header-icons">
+                    <img src="assets/notifi.png" alt="Notificações">
+                    <img src="assets/user.png" alt="Perfil">
+                </div>
+            </div>
+        </header>
+        <div class="sidebar">
+            <ul>
+                <li> <a href="alunos.html"><img src="assets/students-icon.png" alt="Alunos">Alunos</a></li>
+                <li><img src="assets/groups-icon.png" alt="Grupos"> Grupos</li>
+                <li><img src="assets/report-icon.png" alt="Relatório"> Relatório</li>
+                <li><img src="assets/plan-icon.png" alt="Plano Aditivo"> Plano Aditivo</li>
+                <li><img src="assets/tasks-icon.png" alt="Tarefas"> Tarefas</li>
+            </ul>
+        </div>
+</div>
+<br>
+    <div class="main-content">
+        <h1>Atualizar Aluno</h1>
+        <div class="Form">
+            <form id="form">
+                <div class="mb-3 text-start">
+                    <label class="form-label">Nome:</label>
+                    <input type="name" name="name" class="form-control" id="name" placeholder="Nome">
+                </div>
+
+                
+                <input type="hidden" name="id" id="id"> <!-- id do aluno -->
+
+                <div class="mb-3 text-start">
+                    <label class="form-label">Email:</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                </div>
+
+                <div class="mb-3 text-start">
+                    <label class="form-label">RM:</label>
+                    <input type="name" name="code" class="form-control" id="code" placeholder="RA">
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div class="add-user">
+                    <button>Atualizar Professor</button>
+                </div>
+    
+                <div class="remove-user">
+                    <button id="btn-delete" type="button">Apagar Professor</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
