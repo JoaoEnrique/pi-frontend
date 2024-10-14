@@ -1,4 +1,5 @@
 import { showEror, showSuccess } from "./config.js";
+import "./vlibras.js"
 
 function createDivsMessage(){
     // Seleciona o elemento h1 dentro de .main-content
