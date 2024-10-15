@@ -26,101 +26,101 @@ a {
 }
 
 .main-content {
-      display: flex;
-      align-self: center;
-      flex-direction: column;
-      margin-top: 2.5rem;
-      margin: 2rem auto;
-      padding: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      align-content: center;
-      width: 70%;
-  }
+    /* display: flex; */
+    align-self: center;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: center;
+    width: 70%;
+}
 
-  .main-content h1 {
-      font-size: 5rem;
-      margin-top: 2rem;
-      margin-bottom: 1.5px;
-  }
+.main-content h1 {
+    font-size: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5px;
+}
 
-  .main-content h2 {
-      font-size: 3rem;
-      margin-bottom: 1.5px;
-  }
+.main-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5px;
+}
 
-  .search-bar {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-  }
+.search-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
 
-  .search-bar input {
-      width: 90%;
-      padding: 1rem;
-      border: none;
-      border-radius: 5px 0 0 5px;
-      outline: none;
-      font-size: 2rem;
-  }
+.search-bar input {
+    width: 90%;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 2rem;
+}
 
-  .search-bar button {
-      width: 10%;
-      padding: 1rem;
-      background-color: #ccc;
-      border: none;
-      border-left: none;
-      border-radius: 0 5px 5px 0;
-      cursor: pointer;
-  }
-  .search-bar img {
-      width: 3rem;
-  }
+.search-bar button {
+    width: 10%;
+    padding: 1rem;
+    background-color: #ccc;
+    border: none;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+.search-bar img {
+    width: 3rem;
+}
 
-  .add-user, .remove-user {
-      display: flex;
-      /* justify-content: center; */
-      margin: 20px 0;
-  }
+.add-user, .remove-user {
+    display: flex;
+    /* justify-content: center; */
+    margin: 20px 0;
+}
 
-  .remove-user{
-      margin-left: 10px;
-  }
+.remove-user{
+    margin-left: 10px;
+}
 
-  .add-user button {
-      background-color: #3A6EA5;
-      color: white;
-      padding: 1.5rem 2rem;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      font-size: 2rem;
-      transition: background-color 0.3s;
-  }
+.add-user button {
+    background-color: #3A6EA5;
+    color: white;
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: background-color 0.3s;
+}
 
-  .remove-user button {
-      background-color: #dc3545;
-      color: white;
-      padding: 1.5rem 2rem;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      font-size: 2rem;
-      transition: background-color 0.3s;
-  }
+.remove-user button {
+    background-color: #dc3545;
+    color: white;
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: background-color 0.3s;
+}
 
-  .add-user button:hover {
-      background-color: #2f5885;
-  }
-  .remove-user button:hover {
-      background-color: #b02a37;
-  }
+.add-user button:hover {
+    background-color: #2f5885;
+}
+.remove-user button:hover {
+    background-color: #b02a37;
+}
 
-  .w-100{
-      width: 100%;
-  }
+.w-100{
+    width: 100%;
+}
 
 @media screen and (max-width: 500px) {
   .main-content{
