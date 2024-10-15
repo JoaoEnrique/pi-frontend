@@ -5,6 +5,29 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
+
+    <!-- plugin de acessibilidade -->
+    <script src="https://cdn.userway.org/widget.js" data-account="SEU_CODIGO_AQUI" async ></script>
+
+    <style>
+      /* plugin de acessibilidade */
+      body .uwy.userway_p1 .userway_buttons_wrapper{
+        top: 50%!important;
+      }
+
+      
+      body .uwy .uai, body .uwy .ulsti{
+        height: 60px!important;
+        width: 60px!important;
+        background-color: #3A6EA5!important;
+      }
+
+      .uwy .uai img:not(.userway_check_on), .uwy .ulsti img:not(.userway_check_on), body .uwy .uai img:not(.userway_check_on), body .uwy .ulsti img:not(.userway_check_on){
+        width: 100%!important;
+        height: 100%!important;
+      }
+    </style>
+
   </head>
   <body>
     <div id="root"></div>

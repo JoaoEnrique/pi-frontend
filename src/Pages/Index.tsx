@@ -43,6 +43,7 @@ export function Index(){
                 </div>
                 <p>Gerencie trabalhos de graduação de onde você estiver!</p>
             </div>
+            
             <Footer/>
         </>
     );
