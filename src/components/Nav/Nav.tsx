@@ -1,6 +1,6 @@
-import logo from '../assets/logo.png'
-import notifi from '../assets/notifi.png'
-import user from '../assets/user.png'
+import logo from '../../assets/logo.png'
+import notifi from '../../assets/notifi.png'
+import user from '../../assets/user.png'
 import './Nav.css'
 
 export function Nav(){
