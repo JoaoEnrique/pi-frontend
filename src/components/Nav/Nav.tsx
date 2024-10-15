@@ -1,6 +1,3 @@
-import logo from '../../assets/logo.png'
-import notifi from '../../assets/notifi.png'
-import user from '../../assets/user.png'
 import './Nav.css'
 
 export function Nav(){
@@ -10,11 +7,11 @@ export function Nav(){
                 <header className="header">
                     <div className="headernav">
                         <a href="index.html">
-                            <img src={logo} alt="Logo"/>
+                            <img src="/img/logo.png" alt="Logo"/>
                         </a>
                         <div className="header-icons">
-                            <img src={notifi} alt="Notificações"/>
-                            <img src={user} alt="Perfil"/>
+                            <img src="img/notifi.png" alt="Notificações"/>
+                            <img src="img/user.png" alt="Perfil"/>
                         </div>
                     </div>
                 </header>
