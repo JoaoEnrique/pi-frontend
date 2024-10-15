@@ -10,8 +10,8 @@ export function Nav(){
                             <img src="/img/logo.png" alt="Logo"/>
                         </a>
                         <div className="header-icons">
-                            <img src="img/notifi.png" alt="Notificações"/>
-                            <img src="img/user.png" alt="Perfil"/>
+                            <img src="/img/notifi.png" alt="Notificações"/>
+                            <img src="/img/user.png" alt="Perfil"/>
                         </div>
                     </div>
                 </header>

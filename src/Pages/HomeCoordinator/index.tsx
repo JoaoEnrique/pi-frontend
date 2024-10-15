@@ -2,35 +2,36 @@ import { Card } from "../../components/Card";
 import { Footer } from "../../components/Footer";
 import { Nav } from "../../components/Nav";
 
-export function HomeTeacher(){
+export function HomeCoordinator(){
     return (
         <>
             <Nav/>
             <div className="container">
-                <h1>Bem-vindo, professor Antônio</h1>
+                <h1>Bem-vindo, Coodernador</h1>
                 <p>O que deseja realizar?</p>
+
                 <div className="action-buttons">
                     <Card
-                        link="#"
-                        imgSrc="/img/grupo.png"
-                        imgAlt="GRUPOS"
-                        title="GRUPOS"
-                        description="Gerencie o trabalho das suas turmas"
+                        link="/turmas"
+                        imgSrc="/img/aptplan.png"
+                        imgAlt="Turmas"
+                        title="Turmas"
+                        description="Acompanhe e gerencie os cursos disponiveis"
                     />
                     
                     <Card
-                        link="#"
+                        link="/cursos"
                         imgSrc="/img/aptplan.png"
-                        imgAlt="RELATÓRIO"
-                        title="RELATÓRIO"
+                        imgAlt="Curso"
+                        title="Curso"
                         description="Acompanhe o relatório de andamento dos trabalhos"
                     />
                     
                     <Card
-                        link="/adm/dashboard"
+                        link="/alunos"
                         imgSrc="/img/alunos.png"
-                        imgAlt="ALUNOS"
-                        title="ALUNOS"
+                        imgAlt="Alunos"
+                        title="Alunos"
                         description="Verifique seus alunos"
                     />
                 </div>
