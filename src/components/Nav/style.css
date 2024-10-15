@@ -34,3 +34,37 @@
     width: 3.5rem;
     height: auto;
 }
+
+
+
+/* NavLeft */
+.sidebar {
+    position: fixed;
+    height: 100%;
+    width: 5rem;
+    background-color: #3A6EA5;
+    color: white;
+    padding-top: 3rem;
+    margin-top:1rem ;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.sidebar ul li {
+    padding: 15px 0px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}
+
+.sidebar ul li:hover {
+    background-color: #28496d;
+}
+
+.sidebar ul li img {
+    width: 3rem;
+}

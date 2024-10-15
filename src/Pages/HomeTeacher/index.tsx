@@ -27,7 +27,7 @@ export function HomeTeacher(){
                     />
                     
                     <Card
-                        link="/adm/dashboard"
+                        link="/alunos"
                         imgSrc="/img/alunos.png"
                         imgAlt="ALUNOS"
                         title="ALUNOS"
