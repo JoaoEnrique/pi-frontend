@@ -1,4 +1,4 @@
-import './Card.css'
+import './style.css'
 
 type CardProps = {
     link: string,

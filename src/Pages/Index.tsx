@@ -1,6 +1,6 @@
-import { Footer } from "../components/Footer/Footer";
-import { Nav } from "../components/Nav/Nav"
-import { Card } from '../components/Card/Card'
+import { Footer } from "../components/Footer/index";
+import { Nav } from "../components/Nav/index"
+import { Card } from '../components/Card/index'
 import './Index.css'
 
 export function Index(){

@@ -1,4 +1,4 @@
-import './Nav.css'
+import './style.css'
 
 export function Nav(){
     return (
@@ -6,7 +6,7 @@ export function Nav(){
             <div className="menus">
                 <header className="header">
                     <div className="headernav">
-                        <a href="index.html">
+                        <a href="/">
                             <img src="/img/logo.png" alt="Logo"/>
                         </a>
                         <div className="header-icons">
