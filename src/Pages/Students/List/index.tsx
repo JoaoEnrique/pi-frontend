@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { PrimaryButton } from "../../components/Buttons";
-import { Nav, NavLeft } from "../../components/Nav"
-import { SearchForm } from "../../components/SeachForm";
+import { PrimaryButton } from "../../../components/Buttons";
+import { Nav, NavLeft } from "../../../components/Nav"
+import { SearchForm } from "../../../components/SeachForm";
 import axios from "axios";
 import './style.css'
-import { ErrorMessage, SuccessMessage } from "../../components/Messages";
+import { ErrorMessage, SuccessMessage } from "../../../components/Messages";
 import { Helmet } from "react-helmet";
 
 type Student = {

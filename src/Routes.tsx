@@ -3,7 +3,8 @@ import { Index } from "./Pages/Index";
 import { HomeTeacher } from "./Pages/HomeTeacher";
 import { NotFound } from "./Pages/Errors/NotFound";
 import { HomeCoordinator } from "./Pages/HomeCoordinator";
-import { ListStudents } from "./Students/List";
+import { ListStudents } from "./Pages/Students/List";
+import { ListClasses } from "./Pages/Classes/List";
 
 export function AppRoutes(){
     return (
@@ -16,6 +17,9 @@ export function AppRoutes(){
 
                 {/* alunos */}
                 <Route path="/alunos" element={ <ListStudents/> }/>
+
+                {/* turmas */}
+                <Route path="/turmas" element={ <ListClasses/> }/>
 
                 <Route path='*' element={<NotFound />} />
             </Routes>
