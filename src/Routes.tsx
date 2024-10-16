@@ -7,6 +7,8 @@ import { ListStudents } from "./Pages/Students/List";
 import { ListClasses } from "./Pages/Classes/List";
 import { ListCourses } from "./Pages/Courses/List";
 import { StoreCourse } from "./Pages/Courses/Store";
+import { HomeAdmin } from "./Pages/HomeAdmin";
+import { ListTeachers } from "./Pages/Teachers/List";
 
 export function AppRoutes(){
     return (
@@ -16,9 +18,13 @@ export function AppRoutes(){
 
                 <Route path="/professor/dashboard" element={ <HomeTeacher/> }/>
                 <Route path="/coordenador/dashboard" element={ <HomeCoordinator/> }/>
+                <Route path="/admin/dashboard" element={ <HomeAdmin/> }/>
 
                 {/* alunos */}
                 <Route path="/alunos" element={ <ListStudents/> }/>
+
+                {/* professores */}
+                <Route path="/professores" element={ <ListTeachers/> }/>
 
                 {/* turmas */}
                 <Route path="/turmas" element={ <ListClasses/> }/>

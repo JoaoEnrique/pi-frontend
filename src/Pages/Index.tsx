@@ -36,7 +36,7 @@ export function Index(){
 
                     
                     <Card
-                        link="/adm/dashboard"
+                        link="/admin/dashboard"
                         imgSrc="img/aptplan.png"
                         imgAlt="Visão de ADM"
                         title="ADM"
