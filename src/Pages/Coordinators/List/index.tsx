@@ -14,7 +14,7 @@ type Student = {
     email: string;
 }
 
-export function ListTeachers(){
+export function ListCoorinators(){
     const [students, setStudents] = useState<Student[]>([]);
     const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
     const [errorMessage, setErrorMessage] = useState("");
@@ -22,16 +22,16 @@ export function ListTeachers(){
     const [successMessage, setSuccessMessage] = useState("");
     const URL_API = import.meta.env.VITE_URL_API;
 
-     // Função para buscar a lista de professores na API
+     // Função para buscar a lista de coordenadores na API
      useEffect(() => {
         async function fetchStudents() {
             try {
-                const response = await axios.get(`${URL_API}/teachers`);
+                const response = await axios.get(`${URL_API}/coordinators`);
                 setStudents(response.data); // Armazena os dados no estado
                 setFilteredStudents(response.data);
             } catch (error: any) {
-                console.error("Erro ao buscar os professores:", error);
-                setTitleMessage("Erro ao buscar os professores: ");
+                console.error("Erro ao buscar os coordenadores:", error);
+                setTitleMessage("Erro ao buscar os coordenadores: ");
                 setErrorMessage(error.response.data.error ?? error.message);
             }
         }
@@ -44,7 +44,7 @@ export function ListTeachers(){
         return window.location.href = `edit_aluno.html?id=${id}`;
     }
 
-     // Função para filtrar professores
+     // Função para filtrar coordenadores
      function handleSearch(query: string) {
         const filtered = students.filter((student) =>
             student.name.toLowerCase().includes(query.toLowerCase()) || 
@@ -57,12 +57,12 @@ export function ListTeachers(){
     return (
         <>
             <Helmet>
-                <title>Listar Professores</title>
+                <title>Listar Coordenadores</title>
             </Helmet>
             <Nav></Nav>
             <NavLeft></NavLeft>
             <div className="main-content">
-                <h1>Professores</h1>
+                <h1>Coordenadores</h1>
 
                 <ErrorMessage title={titleMessage} isVivible={errorMessage.length ? true : false} text={errorMessage}/>
                 <SuccessMessage title={titleMessage} isVivible={successMessage.length ? true : false} text={successMessage}/>
@@ -85,7 +85,7 @@ export function ListTeachers(){
                 </div>
 
 
-                <PrimaryButton type="submit">Adicionar Professor</PrimaryButton>
+                <PrimaryButton type="submit">Adicionar Coordenador</PrimaryButton>
             </div>
         </>
     );

@@ -9,6 +9,7 @@ import { ListCourses } from "./Pages/Courses/List";
 import { StoreCourse } from "./Pages/Courses/Store";
 import { HomeAdmin } from "./Pages/HomeAdmin";
 import { ListTeachers } from "./Pages/Teachers/List";
+import { ListCoorinators } from "./Pages/Coordinators/List";
 
 export function AppRoutes(){
     return (
@@ -25,6 +26,9 @@ export function AppRoutes(){
 
                 {/* professores */}
                 <Route path="/professores" element={ <ListTeachers/> }/>
+
+                {/* coordenadores */}
+                <Route path="/coordenadores" element={ <ListCoorinators/> }/>
 
                 {/* turmas */}
                 <Route path="/turmas" element={ <ListClasses/> }/>
