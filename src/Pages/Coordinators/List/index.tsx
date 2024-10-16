@@ -78,14 +78,14 @@ export function ListCoorinators(){
                             </div>
                             <div className="user-ra">
                                 RM: {e.code}
-                                <img src="img/alt_user.png" alt="Perfil"/>
+                                <img src="/img/alt_user.png" alt="Perfil"/>
                             </div>
                         </div>
                     ))}
                 </div>
 
 
-                <PrimaryButton type="submit">Adicionar Coordenador</PrimaryButton>
+                <PrimaryButton isLink={true} href="/coordenadores/novo">Adicionar Coordenador</PrimaryButton>
             </div>
         </>
     );

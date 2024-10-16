@@ -16,7 +16,7 @@ export function HomeAdmin(){
                 <div className="action-buttons">
                     <Card
                         link="/professores"
-                        imgSrc="/img/grupo.png"
+                        imgSrc="../img/grupo.png"
                         imgAlt="Professores"
                         title="Professores"
                         description="Gerencie os Professores"
