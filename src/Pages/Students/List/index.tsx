@@ -6,6 +6,7 @@ import axios from "axios";
 import './style.css'
 import { ErrorMessage, SuccessMessage } from "../../../components/Messages";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 
 type Student = {
     id: number
@@ -15,6 +16,7 @@ type Student = {
 }
 
 export function ListStudents(){
+    const navigate = useNavigate();
     const [textFile, setTextFile] = useState("<p>Arraste o arquivo para esta <i>zona</i>.</p>");
     const [students, setStudents] = useState<Student[]>([]);
     const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
@@ -109,7 +111,7 @@ export function ListStudents(){
 
                 <div className="users-list">
                     {filteredStudents.map((e, index) => (
-                        <div key={index} className="user">
+                        <div key={index} className="user" onClick={() => navigate(`/alunos/editar/${e.id}`)}>
                             <div className="user-info">
                                 <h3>{e.name}</h3>
                                 <p>{e.email}</p>
@@ -123,7 +125,7 @@ export function ListStudents(){
                 </div>
 
 
-                <PrimaryButton type="submit">Adicionar Aluno</PrimaryButton>
+                <PrimaryButton isLink={true} href="/alunos/novo">Adicionar Aluno</PrimaryButton>
 
                 <h2>Adicionar Aluno usando arquivo</h2>
 

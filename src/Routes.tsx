@@ -12,6 +12,7 @@ import { ListTeachers } from "./Pages/Teachers/List";
 import { ListCoorinators } from "./Pages/Coordinators/List";
 import { StoreCoordinator } from "./Pages/Coordinators/Store";
 import { StoreTeacher } from "./Pages/Teachers/Store";
+import { StoreStudent } from "./Pages/Students/Store";
 
 export function AppRoutes(){
     return (
@@ -25,7 +26,8 @@ export function AppRoutes(){
 
                 {/* alunos */}
                 <Route path="/alunos" element={ <ListStudents/> }/>
-                <Route path="/alunos/novo" element={ <ListStudents/> }/>
+                <Route path="/alunos/novo" element={ <StoreStudent/> }/>
+                <Route path="/alunos/editar/:id" element={ <StoreStudent/> }/>
 
                 {/* professores */}
                 <Route path="/professores" element={ <ListTeachers/> }/>
