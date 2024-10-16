@@ -1,0 +1,111 @@
+#store-by-file{
+    width: 100%;
+}
+
+.label-file{
+    margin-bottom: -20px;
+}
+
+#drop_zone{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    margin-bottom: 2rem;
+    border: #333 0.2rem dashed ;
+    cursor: pointer;
+}
+
+.drop_zone-input {
+    padding: 1rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 2rem;
+    overflow: auto;
+}
+
+ #drop_zone label{
+    /* width: 10%; */
+    padding: 1rem;
+    background-color: #ccc;
+    border: none;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    text-align: center;
+    font-size: 2rem;
+
+}
+
+.users-list {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    width: 100%;
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    transition: background-color 0.3s;
+}
+
+.user:last-child {
+    border-bottom: none;
+}
+
+.user:hover {
+    background-color: #f5f5f5;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info h3 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.user-info p {
+    font-size: 2rem;
+    color: #666;
+}
+
+.user-ra {
+    font-size: 3rem;
+    font-weight: normal;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.user-ra img {
+    width: 4.5rem;
+    margin-left: 10px;
+}
+
+
+@media (max-width: 850px) {
+    .user{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #drop_zone{
+        flex-wrap: wrap;
+    }
+
+    #drop_zone label{
+        margin-top: 5px;
+        width: 100%;
+    }
+}

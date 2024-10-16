@@ -1,11 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PrimaryButton } from "../../components/Buttons";
 import { Nav, NavLeft } from "../../components/Nav"
 import { SearchForm } from "../../components/SeachForm";
-import './file.css'
+import axios from "axios";
+import './style.css'
+import { ErrorMessage, SuccessMessage } from "../../components/Messages";
+
+type Student = {
+    id: number
+    code: number
+    name: string;
+    email: string;
+}
 
 export function ListStudents(){
     const [textFile, setTextFile] = useState("<p>Arraste o arquivo para esta <i>zona</i>.</p>");
+    const [students, setStudents] = useState<Student[]>([]);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [titleMessage, setTitleMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+    const URL_API = import.meta.env.VITE_URL_API;
+
+     // Função para buscar a lista de alunos na API
+     useEffect(() => {
+        async function fetchStudents() {
+            try {
+                const response = await axios.get(`${URL_API}/students`);
+                setStudents(response.data); // Armazena os dados no estado
+            } catch (error: any) {
+                console.error("Erro ao buscar os alunos:", error);
+                setTitleMessage("Erro ao buscar os alunos: ");
+                setErrorMessage(error.response.data.error ?? error.message);
+            }
+        }
+
+        fetchStudents(); // Chama a função ao carregar a página
+    }, [URL_API]);
+
 
     function dropHandler(ev: React.DragEvent<HTMLDivElement>) {
         ev.preventDefault(); // Prevenir comportamento padrão
@@ -44,6 +75,10 @@ export function ListStudents(){
         }
     }
 
+    function redirectEdit(id: number){
+        return window.location.href = `edit_aluno.html?id=${id}`;
+    }
+
     return (
         <>
             <Nav></Nav>
@@ -51,7 +86,26 @@ export function ListStudents(){
             <div className="main-content">
                 <h1>Alunos</h1>
 
+                <ErrorMessage title={titleMessage} isVivible={errorMessage.length ? true : false} text={errorMessage}/>
+                <SuccessMessage title={titleMessage} isVivible={successMessage.length ? true : false} text={successMessage}/>
+
                 <SearchForm/>
+
+                <div className="users-list">
+                    {students.map((e, index) => (
+                        <div key={index} className="user">
+                            <div className="user-info">
+                                <h3>{e.name}</h3>
+                                <p>{e.email}</p>
+                            </div>
+                            <div className="user-ra">
+                                RM: {e.code}
+                                <img src="img/alt_user.png" alt="Perfil"/>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
 
                 <PrimaryButton type="submit">Adicionar Aluno</PrimaryButton>
 
