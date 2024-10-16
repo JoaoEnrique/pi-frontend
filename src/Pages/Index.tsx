@@ -2,10 +2,15 @@ import { Footer } from "../components/Footer/index";
 import { Nav } from "../components/Nav/index"
 import { Card } from '../components/Card/index'
 import './Index.css'
+import { Helmet } from 'react-helmet';
 
 export function Index(){
     return (
         <>
+            <Helmet>
+                <title>Página Inicial</title>
+            </Helmet>
+            
             <Nav/>
             <div className="container">
                 <h1>Escolha sua visão</h1>

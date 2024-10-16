@@ -5,6 +5,7 @@ import { SearchForm } from "../../components/SeachForm";
 import axios from "axios";
 import './style.css'
 import { ErrorMessage, SuccessMessage } from "../../components/Messages";
+import { Helmet } from "react-helmet";
 
 type Student = {
     id: number
@@ -93,6 +94,9 @@ export function ListStudents(){
 
     return (
         <>
+            <Helmet>
+                <title>Listar Alunos</title>
+            </Helmet>
             <Nav></Nav>
             <NavLeft></NavLeft>
             <div className="main-content">

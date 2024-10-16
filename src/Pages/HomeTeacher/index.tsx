@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { Card } from "../../components/Card";
 import { Footer } from "../../components/Footer";
 import { Nav } from "../../components/Nav";
@@ -5,6 +6,9 @@ import { Nav } from "../../components/Nav";
 export function HomeTeacher(){
     return (
         <>
+            <Helmet>
+                <title>Dashboard do Professor</title>
+            </Helmet>
             <Nav/>
             <div className="container">
                 <h1>Bem-vindo, professor Antônio</h1>
