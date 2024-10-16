@@ -68,7 +68,7 @@ export function ListCourses(){
                 <ErrorMessage title={titleMessage} isVivible={errorMessage.length ? true : false} text={errorMessage}/>
                 <SuccessMessage title={titleMessage} isVivible={successMessage.length ? true : false} text={successMessage}/>
 
-                <SearchForm  onSearch={handleSearch}/>
+                <SearchForm onSearch={handleSearch}/>
 
                 <div className="users-list">
                     {filteredCourses.map((e, index) => (
@@ -85,7 +85,7 @@ export function ListCourses(){
                 </div>
 
 
-                <PrimaryButton type="submit">Adicionar Aluno</PrimaryButton>
+                <PrimaryButton type="submit" isLink={true} href="/cursos/novo">Adicionar Aluno</PrimaryButton>
             </div>
         </>
     );
