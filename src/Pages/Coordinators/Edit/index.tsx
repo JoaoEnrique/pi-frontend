@@ -1,48 +1,21 @@
 import { Helmet } from "react-helmet";
 import { FormContainer, Input, Radio, Select } from "../../../components/FormContainer";
 import { Nav, NavLeft } from "../../../components/Nav";
-import { DangerButton, PrimaryButton } from "../../../components/Buttons";
-import { useEffect, useState } from "react";
+import { PrimaryButton } from "../../../components/Buttons";
+import { useState } from "react";
 import axios from "axios";
 import { ErrorMessage, SuccessMessage } from "../../../components/Messages";
-import { useParams } from "react-router-dom";
 
-export function StoreCoordinator(){
-    const { id } = useParams<{ id: string }>();  // Pega o ID da URL
+export function EditCoordinator(){
     const [errorMessage, setErrorMessage] = useState("");
     const [titleMessage, setTitleMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        id: 0,
         code: '',
     });
     const URL_API = import.meta.env.VITE_URL_API;
-
-    // Função para buscar os dados do curso pelo ID
-    useEffect(() => {
-        const fetchCourse = async () => {
-            if(id){
-                try {
-                    const response = await axios.get(`${URL_API}/coordinators/${id}`);
-                    
-                    if(response.data){
-                        setFormData(response.data);
-                        return;
-                    }
-
-                    setTitleMessage("Erro ao buscar coordenador");
-                    setErrorMessage("O coordenador não foi encontrado");
-                } catch (error: any) {
-                    console.error("Erro:", error);
-                    setErrorMessage(error.response.data.error ?? error.message);
-                }
-            }
-        };
-
-        if (id) fetchCourse();
-    }, [id]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -60,47 +33,18 @@ export function StoreCoordinator(){
                 return;
             }
 
-            if(id){
-                if(!formData.id){
-                    return;
-                }
-                
-                var response = await axios.put(`${URL_API}/coordinators/${id}`, formData);
-            }
-            else
-                var response = await axios.post(`${URL_API}/coordinators`, formData);
+            const response = await axios.post(`${URL_API}/coordinators`, formData);
 
             // Sucesso
             setTitleMessage("");
-            setSuccessMessage(response.data.message);
+            setSuccessMessage("Curso Cadastrado");
             // Aqui você pode redirecionar ou realizar outra ação
             // window.location.href = `edit_curso.html?id=${response.data.coordinator.id}`;
-            setTimeout(() => {
-                window.location.href = `/coordenadores/editar/${response.data.coordinator.id}`;
-            }, 1000); // Delay de 2 segundos (2000 milissegundos)
+            window.location.href = `/coordenadores`;
             return;
 
         } catch (error: any) {
             setTitleMessage("");
-            setErrorMessage(error?.response?.data.error ?? error.message);
-            console.error("Ocorreu um erro:", error);
-        }
-    };
-
-    const handleRemove = async (e: React.FormEvent) => {
-        try {
-            await axios.delete(`${URL_API}/coordinators/${id}`);
-
-            // Sucesso
-            setTitleMessage("");
-            setSuccessMessage("Coordenador removido");
-            setTimeout(() => {
-                window.location.href = `/coordenadores`;
-            }, 1000); // Delay de 2 segundos (2000 milissegundos)
-            return;
-
-        } catch (error: any) {
-            setTitleMessage("Erro: ");
             setErrorMessage(error?.response?.data.error ?? error.message);
             console.error("Ocorreu um erro:", error);
         }
@@ -109,13 +53,13 @@ export function StoreCoordinator(){
     return (
         <>
             <Helmet>
-                <title>{id ? "Atualizar Coordenador" : "Adicionar Coordenador"}</title>
+                <title>Cadastrar Coordenador</title>
             </Helmet>
             <Nav/>
             <NavLeft/>
             
             <div className="main-content">
-                <h1>{id ? "Atualizar Coordenador" : "Adicionar Coordenador"}</h1>
+                <h1>Adicionar Coordenador</h1>
                 
                 <ErrorMessage title={titleMessage} isVivible={errorMessage.length ? true : false} text={errorMessage}/>
                 <SuccessMessage title={titleMessage} isVivible={successMessage.length ? true : false} text={successMessage}/>
@@ -145,19 +89,9 @@ export function StoreCoordinator(){
                         onChange={handleInputChange}
                     />
 
-                    <div className="d-flex">
-                        <PrimaryButton type="submit">
-                            {id ? "Atualizar Coordenador" : "Adicionar Coordenador"}
-                        </PrimaryButton>
-
-                        
-                        {id ? (
-                            <DangerButton onClick={handleRemove} type="button">
-                                Remover Coordenador
-                            </DangerButton>
-                        ) : ''}
-                    </div>
-
+                    <PrimaryButton type="submit">
+                        Adicionar Curso
+                    </PrimaryButton>
                 </FormContainer>
             </div>
         </>

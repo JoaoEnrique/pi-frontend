@@ -49,7 +49,7 @@ export function Input(props: InputContainerProps){
         <>
             <div className="mb-3 text-start">
                 <label htmlFor={props.name} className="form-label">{props.label}</label>
-                <input onChange={props.onChange} type={props.type ?? "text"} name={props.name} className="form-control" id={props.id ?? props.name} placeholder={props.placeholder}/>
+                <input value={props.value} onChange={props.onChange} type={props.type ?? "text"} name={props.name} className="form-control" id={props.id ?? props.name} placeholder={props.placeholder}/>
             </div>
         </>
     );

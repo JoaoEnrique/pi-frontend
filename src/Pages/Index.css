@@ -33,6 +33,10 @@
     width: 50rem;
 }
 
+.d-flex{
+    display: flex;
+}
+
 @media screen and (max-width: 500px) {
   .main-image img{
       width: 100%;

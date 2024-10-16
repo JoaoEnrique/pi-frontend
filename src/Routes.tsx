@@ -32,6 +32,7 @@ export function AppRoutes(){
                 {/* coordenadores */}
                 <Route path="/coordenadores" element={ <ListCoorinators/> }/>
                 <Route path="/coordenadores/novo" element={ <StoreCoordinator/> }/>
+                <Route path="/coordenadores/editar/:id" element={<StoreCoordinator />} />
 
                 {/* turmas */}
                 <Route path="/turmas" element={ <ListClasses/> }/>

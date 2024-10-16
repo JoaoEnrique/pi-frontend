@@ -41,7 +41,7 @@ export function ListCoorinators(){
 
 
     function redirectEdit(id: number){
-        return window.location.href = `edit_aluno.html?id=${id}`;
+        return window.location.href = `/coordenadores/editar/${id}`;
     }
 
      // Função para filtrar coordenadores
@@ -71,7 +71,7 @@ export function ListCoorinators(){
 
                 <div className="users-list">
                     {filteredStudents.map((e, index) => (
-                        <div key={index} className="user">
+                        <div key={index} className="user" onClick={() => redirectEdit(e.id)}>
                             <div className="user-info">
                                 <h3>{e.name}</h3>
                                 <p>{e.email}</p>
