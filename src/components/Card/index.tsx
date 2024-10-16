@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './style.css'
 
 type CardProps = {
@@ -11,11 +12,11 @@ type CardProps = {
 export function Card(props: CardProps){
     return (
         <>
-            <a className="card" href={props.link}>
+            <Link className="card" to={props.link}>
                 <img src={props.imgSrc} alt={props.imgAlt}/>
                 <h3>{ props.title }</h3>
                 <p>{ props.description }</p>
-            </a>
+            </Link>
         </>
     );
 }

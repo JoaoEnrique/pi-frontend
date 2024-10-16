@@ -5,8 +5,10 @@ import { PrimaryButton } from "../../../components/Buttons";
 import { useState } from "react";
 import axios from "axios";
 import { ErrorMessage, SuccessMessage } from "../../../components/Messages";
+import { useNavigate } from "react-router-dom";
 
 export function StoreCourse(){
+    const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState("");
     const [titleMessage, setTitleMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
@@ -41,7 +43,7 @@ export function StoreCourse(){
             setTitleMessage("");
             setSuccessMessage("Informe todos os campos");
             // Aqui você pode redirecionar ou realizar outra ação
-            window.location.href = `edit_curso.html?id=${response.data.course.id}`;
+            navigate(`/cursos/${response.data.coordinator.id}`);
 
         } catch (error) {
             console.error("Ocorreu um erro:", error);

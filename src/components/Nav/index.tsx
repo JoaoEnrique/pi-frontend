@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './style.css'
 
 export function Nav(){
@@ -6,9 +7,9 @@ export function Nav(){
             <div className="menus">
                 <header className="header">
                     <div className="headernav">
-                        <a href="/">
+                        <Link to="/">
                             <img src="/img/logo.png" alt="Logo"/>
-                        </a>
+                        </Link>
                         <div className="header-icons">
                             <img src="/img/notifi.png" alt="Notificações"/>
                             <img src="/img/user.png" alt="Perfil"/>
@@ -24,7 +25,7 @@ export function NavLeft(){
     return (
         <div className="sidebar">
             <ul>
-                <li> <a href="/alunos"><img src="/img/students-icon.png" alt="Alunos"/>Alunos</a></li>
+                <li> <Link to="/students"><img src="/img/students-icon.png" alt="Alunos"/>Alunos</Link></li>
                 <li><img src="/img/groups-icon.png" alt="Grupos"/> Grupos</li>
                 <li><img src="/img/report-icon.png" alt="Relatório"/> Relatório</li>
                 <li><img src="/img/plan-icon.png" alt="Plano Aditivo"/> Plano Aditivo</li>

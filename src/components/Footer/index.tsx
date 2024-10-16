@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './style.css'
 
 export function Footer(){
@@ -13,9 +14,9 @@ export function Footer(){
                 <div className="footer-column">
                     <h4>MAPA DO SITE</h4>
                     <ul>
-                        <li><a href="#">Xxxxxxx</a></li>
-                        <li><a href="#">Xxxxxxx</a></li>
-                        <li><a href="#">Xxxxxxx</a></li>
+                        <li><Link to="#">Xxxxxxx</Link></li>
+                        <li><Link to="#">Xxxxxxx</Link></li>
+                        <li><Link to="#">Xxxxxxx</Link></li>
                     </ul>
                 </div>
                 <div className="footer-column">
@@ -29,10 +30,10 @@ export function Footer(){
                 <div className="footer-column">
                     <h4>PRECISA DE SUPORTE?</h4>
                     <ul>
-                        <li><a href="#">Chat online</a></li>
-                        <li><a href="#">E-mail</a></li>
-                        <li><a href="#">Fale conosco</a></li>
-                        <li><a href="#">Fóruns</a></li>
+                        <li><Link to="#">Chat online</Link></li>
+                        <li><Link to="#">E-mail</Link></li>
+                        <li><Link to="#">Fale conosco</Link></li>
+                        <li><Link to="#">Fóruns</Link></li>
                     </ul>
                 </div>
             </div>

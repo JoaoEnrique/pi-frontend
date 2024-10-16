@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type ButtonProps = {
     type?: "submit" | "reset" | "button";
     isLink?: boolean;
@@ -10,7 +12,7 @@ export function PrimaryButton(props: ButtonProps){
     if(props.isLink){
         return (
             <div className="add-user">
-                <a href={props.href}><button>{props.children}</button></a>
+                <Link to={props.href ?? ""}><button>{props.children}</button></Link>
             </div>
         );
     }
@@ -27,7 +29,7 @@ export function DangerButton(props: ButtonProps){
     if(props.isLink){
         return (
             <div className="remove-user">
-                <a href={props.href}><button>{props.children}</button></a>
+                <Link to={props.href ?? ""}><button>{props.children}</button></Link>
             </div>
         );
     }

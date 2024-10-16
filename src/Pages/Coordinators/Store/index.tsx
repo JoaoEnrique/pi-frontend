@@ -5,9 +5,10 @@ import { DangerButton, PrimaryButton } from "../../../components/Buttons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ErrorMessage, SuccessMessage } from "../../../components/Messages";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function StoreCoordinator(){
+    const navigate = useNavigate();
     const { id } = useParams<{ id: string }>();  // Pega o ID da URL
     const [errorMessage, setErrorMessage] = useState("");
     const [titleMessage, setTitleMessage] = useState("");
@@ -73,10 +74,8 @@ export function StoreCoordinator(){
             // Sucesso
             setTitleMessage("");
             setSuccessMessage(response.data.message);
-            // Aqui você pode redirecionar ou realizar outra ação
-            // window.location.href = `edit_curso.html?id=${response.data.coordinator.id}`;
             setTimeout(() => {
-                window.location.href = `/coordenadores/editar/${response.data.coordinator.id}`;
+                navigate(`/coordenadores/editar/${response.data.coordinator.id}`);
             }, 1000); // Delay de 2 segundos (2000 milissegundos)
             return;
 
@@ -95,7 +94,7 @@ export function StoreCoordinator(){
             setTitleMessage("");
             setSuccessMessage("Coordenador removido");
             setTimeout(() => {
-                window.location.href = `/coordenadores`;
+                navigate(`/coordenadores`)
             }, 1000); // Delay de 2 segundos (2000 milissegundos)
             return;
 
