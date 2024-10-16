@@ -5,6 +5,7 @@ import { NotFound } from "./Pages/Errors/NotFound";
 import { HomeCoordinator } from "./Pages/HomeCoordinator";
 import { ListStudents } from "./Pages/Students/List";
 import { ListClasses } from "./Pages/Classes/List";
+import { ListCourses } from "./Pages/Courses/List";
 
 export function AppRoutes(){
     return (
@@ -20,6 +21,9 @@ export function AppRoutes(){
 
                 {/* turmas */}
                 <Route path="/turmas" element={ <ListClasses/> }/>
+
+                {/* cursos */}
+                <Route path="/cursos" element={ <ListCourses/> }/>
 
                 <Route path='*' element={<NotFound />} />
             </Routes>
