@@ -6,6 +6,7 @@ import axios from "axios";
 import './style.css'
 import { ErrorMessage, SuccessMessage } from "../../../components/Messages";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 
 type Student = {
     id: number
@@ -15,6 +16,7 @@ type Student = {
 }
 
 export function ListCoorinators(){
+    const navigate = useNavigate();
     const [students, setStudents] = useState<Student[]>([]);
     const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
     const [errorMessage, setErrorMessage] = useState("");
@@ -39,10 +41,6 @@ export function ListCoorinators(){
         fetchStudents(); // Chama a função ao carregar a página
     }, [URL_API]);
 
-
-    function redirectEdit(id: number){
-        return window.location.href = `/coordenadores/editar/${id}`;
-    }
 
      // Função para filtrar coordenadores
      function handleSearch(query: string) {
@@ -71,7 +69,7 @@ export function ListCoorinators(){
 
                 <div className="users-list">
                     {filteredStudents.map((e, index) => (
-                        <div key={index} className="user" onClick={() => redirectEdit(e.id)}>
+                        <div key={index} className="user" onClick={() => navigate(`/coordenadores/editar/${e.id}`)}>
                             <div className="user-info">
                                 <h3>{e.name}</h3>
                                 <p>{e.email}</p>

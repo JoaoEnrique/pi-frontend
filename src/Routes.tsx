@@ -11,6 +11,7 @@ import { HomeAdmin } from "./Pages/HomeAdmin";
 import { ListTeachers } from "./Pages/Teachers/List";
 import { ListCoorinators } from "./Pages/Coordinators/List";
 import { StoreCoordinator } from "./Pages/Coordinators/Store";
+import { StoreTeacher } from "./Pages/Teachers/Store";
 
 export function AppRoutes(){
     return (
@@ -28,6 +29,8 @@ export function AppRoutes(){
 
                 {/* professores */}
                 <Route path="/professores" element={ <ListTeachers/> }/>
+                <Route path="/professores/novo" element={ <StoreTeacher/> }/>
+                <Route path="/professores/editar/:id" element={<StoreTeacher />} />
 
                 {/* coordenadores */}
                 <Route path="/coordenadores" element={ <ListCoorinators/> }/>
