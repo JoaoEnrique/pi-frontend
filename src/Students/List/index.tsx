@@ -16,6 +16,7 @@ type Student = {
 export function ListStudents(){
     const [textFile, setTextFile] = useState("<p>Arraste o arquivo para esta <i>zona</i>.</p>");
     const [students, setStudents] = useState<Student[]>([]);
+    const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
     const [errorMessage, setErrorMessage] = useState("");
     const [titleMessage, setTitleMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
@@ -27,6 +28,7 @@ export function ListStudents(){
             try {
                 const response = await axios.get(`${URL_API}/students`);
                 setStudents(response.data); // Armazena os dados no estado
+                setFilteredStudents(response.data);
             } catch (error: any) {
                 console.error("Erro ao buscar os alunos:", error);
                 setTitleMessage("Erro ao buscar os alunos: ");
@@ -79,6 +81,16 @@ export function ListStudents(){
         return window.location.href = `edit_aluno.html?id=${id}`;
     }
 
+     // Função para filtrar alunos
+     function handleSearch(query: string) {
+        const filtered = students.filter((student) =>
+            student.name.toLowerCase().includes(query.toLowerCase()) || 
+            student.email.toLowerCase().includes(query.toLowerCase()) || 
+            student.code.toString().includes(query)
+        );
+        setFilteredStudents(filtered);
+    }
+
     return (
         <>
             <Nav></Nav>
@@ -89,10 +101,10 @@ export function ListStudents(){
                 <ErrorMessage title={titleMessage} isVivible={errorMessage.length ? true : false} text={errorMessage}/>
                 <SuccessMessage title={titleMessage} isVivible={successMessage.length ? true : false} text={successMessage}/>
 
-                <SearchForm/>
+                <SearchForm  onSearch={handleSearch}/>
 
                 <div className="users-list">
-                    {students.map((e, index) => (
+                    {filteredStudents.map((e, index) => (
                         <div key={index} className="user">
                             <div className="user-info">
                                 <h3>{e.name}</h3>
