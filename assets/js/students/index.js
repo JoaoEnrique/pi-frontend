@@ -18,8 +18,8 @@ function render(students) {
                     <p>${e.email}</p>
                 </div>
                 <div class="user-ra">
-                    RM: ${e.code}
-                    <img src="assets/alt_user.png" alt="Perfil">
+                    RM: {e.code}
+                    <img src="/img/alt_user.png" alt="Perfil"/>
                 </div>
             </div>
         `;
